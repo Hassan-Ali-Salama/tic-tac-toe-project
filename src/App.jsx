@@ -28,9 +28,9 @@ function deriveGameBoard(gameTurns) {
 
   for (const turn of gameTurns) {
     const { square, player } = turn;
-    const { raw, col } = square;
+    const { row, col } = square;
 
-    gameBoard[raw][col] = player;
+    gameBoard[row][col] = player;
   }
 
   return gameBoard;
@@ -72,7 +72,7 @@ function App() {
     setGameTurns((prevTurns) => {
       const currentPlayer = deriveActivePlayer(prevTurns);
       const updatedTurns = [
-        { square: { raw: rowIndex, col: colIndex }, player: currentPlayer },
+        { square: { row: rowIndex, col: colIndex }, player: currentPlayer },
         ...prevTurns,
       ];
 
